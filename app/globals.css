@@ -1,0 +1,278 @@
+@import "@fontsource-variable/vazirmatn";
+
+:root {
+  --sage-bg: #f1f4ec;
+  --sage-bg-deep: #e4ead9;
+  --ink: #1f2e1a;
+  --ink-muted: #5c6a55;
+  --leaf: #4c7a3d;
+  --leaf-deep: #35592a;
+  --soil: #7a5a3a;
+  --marigold: #e8a33d;
+  --dawn-pink: #f3c6a1;
+  --card-bg: #ffffff;
+  --border: #d7ddca;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--sage-bg);
+  color: var(--ink);
+  font-family: "Vazirmatn Variable", "Vazirmatn", Tahoma, sans-serif;
+  direction: rtl;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  padding: 20px 0 8px;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--leaf-deep);
+}
+.nav {
+  display: flex;
+  gap: 18px;
+  font-size: 0.95rem;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--ink-muted);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover {
+  color: var(--leaf-deep);
+  border-color: var(--marigold);
+}
+
+/* ---------- hero / garden bed ---------- */
+.garden-bed {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--dawn-pink) 0%, var(--sage-bg-deep) 65%, #cddcb9 100%);
+  padding: 40px 28px 28px;
+  margin-top: 18px;
+}
+.garden-bed .date-line {
+  font-size: 1rem;
+  color: var(--soil);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.garden-bed h1 {
+  font-size: 1.6rem;
+  margin: 0 0 18px;
+  color: var(--leaf-deep);
+  font-weight: 800;
+}
+
+/* ---------- concept card ---------- */
+.concept-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  box-shadow: 0 10px 30px rgba(31, 46, 26, 0.08);
+  border: 1px solid var(--border);
+}
+.concept-card .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--sage-bg);
+  color: var(--leaf-deep);
+  margin-bottom: 14px;
+}
+.concept-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+}
+.concept-card p {
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.concept-card .exercise {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fbf3e5;
+  border: 1px dashed var(--marigold);
+  font-size: 0.95rem;
+}
+.concept-card .exercise b {
+  color: var(--soil);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.btn-primary {
+  background: var(--leaf);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--leaf-deep);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+}
+.btn-ghost:hover {
+  border-color: var(--leaf);
+  color: var(--leaf-deep);
+}
+
+/* ---------- archive ---------- */
+.plot {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+.plot summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--leaf-deep);
+}
+.plot summary::-webkit-details-marker {
+  display: none;
+}
+.plot summary .count {
+  font-weight: 400;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+.plot-entries {
+  padding: 0 20px 16px;
+  display: grid;
+  gap: 10px;
+}
+.plot-entry {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--sage-bg);
+  border-radius: 12px;
+}
+.plot-entry .body b {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+.plot-entry .body span {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- about ---------- */
+.prose {
+  margin-top: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.prose h1 {
+  margin-top: 0;
+  color: var(--leaf-deep);
+}
+.prose p {
+  color: var(--ink);
+}
+.note {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  margin-top: 40px;
+  padding: 24px 0 40px;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 520px) {
+  .nav {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+  .garden-bed h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .concept-card {
+    animation: rise 0.35s ease;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
