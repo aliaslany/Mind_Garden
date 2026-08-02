@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SproutIcon from "./SproutIcon";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -11,8 +12,9 @@ export default function Header() {
         </Link>
         <nav className="nav">
           <Link href="/">امروز</Link>
-          <Link href="/archive">باغچه‌ها</Link>
-          <Link href="/about">درباره</Link>
+          <Link href="/archive/">باغچه‌ها</Link>
+          <Link href="/about/">درباره</Link>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

@@ -1,4 +1,9 @@
-export const metadata = { title: "درباره | باغچه ذهن" };
+export const metadata = {
+  title: "درباره",
+  description:
+    "باغچه ذهن یک پروژه‌ی غیرانتفاعی و متن‌باز برای اشاعه‌ی ایده‌های کوچک روان‌شناسی مثبت است.",
+  alternates: { canonical: "/about/" },
+};
 
 export default function AboutPage() {
   return (

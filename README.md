@@ -20,6 +20,24 @@ export) so it runs entirely on GitHub Pages — no server needed.
 - `components/SproutIcon.js` — the hand-drawn sprout glyphs, one shape per
   category.
 
+## Features
+
+- **Random daily idea** with a practical exercise, on the home page.
+- **Archive** (`/archive/`) — instant search, category filter chips, and a
+  favorites-only filter, plus the original 12 browsable "plots."
+- **Category/tag pages** (`/category/<slug>/`) — one SEO-friendly, crawlable
+  page per theme (gratitude, growth mindset, resilience, self-compassion,
+  mindfulness, connection), each listing its entries. These are in the
+  sitemap automatically.
+- **Favorites** — heart any entry; stored in the browser's `localStorage`
+  only (nothing leaves the device, no account needed).
+- **Copy quote** and **share to Telegram / X / Facebook** on the home card.
+- **Dark mode** — toggle in the header; respects the OS preference on first
+  visit, remembered afterward via `localStorage`.
+- **SEO**: `robots.txt`, `sitemap.xml`, Open Graph/Twitter meta tags,
+  JSON-LD structured data, canonical URLs — see `lib/site.js`,
+  `app/robots.js`, `app/sitemap.js`.
+
 ## Local development
 
 ```bash

@@ -4,13 +4,23 @@
 // which sprout icon is shown (see components/SproutIcon.js).
 
 export const CATEGORIES = {
-  gratitude: { label: "قدردانی", color: "#4C7A3D" },
-  growth: { label: "ذهنیت رشد", color: "#8A6D3B" },
-  resilience: { label: "تاب‌آوری", color: "#3D6B7A" },
-  selfCompassion: { label: "مهربانی با خود", color: "#A15C8C" },
-  mindfulness: { label: "توجه آگاهانه", color: "#5C7A3D" },
-  connection: { label: "ارتباط و مهربانی", color: "#C1652F" },
+  gratitude: { label: "قدردانی", color: "#4C7A3D", slug: "gratitude", description: "توجه آگاهانه به داشته‌ها، بزرگ یا کوچک، و تمرین دیدن خوبی‌های روزمره." },
+  growth: { label: "ذهنیت رشد", color: "#8A6D3B", slug: "growth-mindset", description: "نگاه به توانایی‌ها به‌عنوان چیزی قابل‌پرورش، نه ثابت و از پیش تعیین‌شده." },
+  resilience: { label: "تاب‌آوری", color: "#3D6B7A", slug: "resilience", description: "ابزارهایی ساده برای عبور از سختی‌ها و بازیابی پس از فشار روانی." },
+  selfCompassion: { label: "مهربانی با خود", color: "#A15C8C", slug: "self-compassion", description: "لحنی نرم‌تر و منصفانه‌تر با خودمان، به‌جای قضاوت و سخت‌گیری." },
+  mindfulness: { label: "توجه آگاهانه", color: "#5C7A3D", slug: "mindfulness", description: "بازگشت ساده و تکرارپذیر به لحظه‌ی حال، از طریق حواس و نفس." },
+  connection: { label: "ارتباط و مهربانی", color: "#C1652F", slug: "connection", description: "تقویت پیوندهای انسانی از طریق حرکت‌های کوچک و صادقانه." },
 };
+
+export const CATEGORY_LIST = Object.entries(CATEGORIES).map(([key, value]) => ({ key, ...value }));
+
+export function getCategoryByKey(key) {
+  return CATEGORIES[key];
+}
+
+export function getCategoryBySlug(slug) {
+  return CATEGORY_LIST.find((c) => c.slug === slug);
+}
 
 // Groups entries round-robin into 12 "plots" for the archive page. This is
 // just an organizational grouping for browsing, not tied to real dates —
