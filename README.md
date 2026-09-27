@@ -1,100 +1,131 @@
-# باغچه ذهن (Baghche Zehn)
+# باغچه ذهن (Mind Garden) 🌱
 
-A small non-profit page: every visit shows the current Jalali date plus one
-random, evidence-informed idea from positive psychology and a short practical
-exercise. No accounts, no tracking, no ads. Built with Next.js (static
-export) so it runs entirely on GitHub Pages — no server needed.
+**هر بار که سر می‌زنید، یک جوانه‌ی تازه.**
 
-## Structure
+باغچه ذهن یک صفحه‌ی کوچک و غیرانتفاعی است: هر بار که سر می‌زنید، تاریخ شمسی امروز را می‌بینید، به‌همراه یک ایده‌ی کوچک برگرفته از پژوهش‌های روان‌شناسی مثبت و یک تمرین کوتاه و کاربردی.
 
-- `data/content.js` — the starter set of ideas. Add more entries any time,
-  same shape: `{ id, category, title, concept, exercise }`. Categories are
-  defined in `CATEGORIES` in the same file.
-- `lib/jalali.js` — Gregorian → Jalali date conversion and Persian digit/month
-  helpers (uses `jalaali-js`).
-- `app/page.js` — home page (today's date + random idea card).
-- `app/archive/page.js` — all ideas, grouped into 12 browsable "plots" (not
-  tied to real dates, just an organizing device).
-- `app/about/page.js` — mission statement + a note that this isn't a
-  substitute for professional mental health support.
-- `components/SproutIcon.js` — the hand-drawn sprout glyphs, one shape per
-  category.
+نه ثبت‌نامی لازم است، نه ردیابی‌ای در کار است و نه تبلیغی. سایت با Next.js به‌صورت استاتیک ساخته می‌شود و کاملاً روی GitHub Pages اجرا می‌شود؛ هیچ سروری لازم نیست.
 
-## Features
+**نشانی سایت:** [aliaslany.github.io/Mind_Garden](https://aliaslany.github.io/Mind_Garden/)
 
-- **Random daily idea** with a practical exercise, on the home page.
-- **Archive** (`/archive/`) — instant search, category filter chips, and a
-  favorites-only filter, plus the original 12 browsable "plots."
-- **Category/tag pages** (`/category/<slug>/`) — one SEO-friendly, crawlable
-  page per theme (gratitude, growth mindset, resilience, self-compassion,
-  mindfulness, connection), each listing its entries. These are in the
-  sitemap automatically.
-- **Favorites** — heart any entry; stored in the browser's `localStorage`
-  only (nothing leaves the device, no account needed).
-- **Copy quote** and **share to Telegram / X / Facebook** on the home card.
-- **Dark mode** — toggle in the header; respects the OS preference on first
-  visit, remembered afterward via `localStorage`.
-- **SEO**: `robots.txt`, `sitemap.xml`, Open Graph/Twitter meta tags,
-  JSON-LD structured data, canonical URLs — see `lib/site.js`,
-  `app/robots.js`, `app/sitemap.js`.
+## امکانات
 
-## Local development
+- **ایده‌ی تصادفی:** در صفحه‌ی اصلی، هر بار یک ایده به‌همراه یک تمرین عملی نمایش داده می‌شود؛ با دکمه‌ی «جوانه بعدی» می‌توانید ایده‌ی دیگری ببینید.
+- **باغچه‌ها (آرشیو):** در صفحه‌ی `/archive/` می‌توانید در ایده‌ها جستجو کنید، آن‌ها را بر اساس دسته یا علاقه‌مندی‌هایتان فیلتر کنید، یا همه را در ۱۲ «باغچه» مرور کنید.
+- **صفحه‌ی هر دسته:** برای هر موضوع (قدردانی، ذهنیت رشد، تاب‌آوری، مهربانی با خود، توجه آگاهانه، ارتباط و مهربانی) یک صفحه‌ی مستقل و قابل‌ایندکس ساخته می‌شود، مثل `/category/gratitude/`. این صفحه‌ها خودکار به نقشه‌ی سایت اضافه می‌شوند.
+- **علاقه‌مندی‌ها:** هر ایده را می‌توانید با ❤️ نشان کنید. فهرست علاقه‌مندی‌ها فقط در `localStorage` مرورگر خودتان ذخیره می‌شود؛ هیچ داده‌ای از دستگاهتان خارج نمی‌شود و حساب کاربری هم لازم نیست.
+- **کپی و اشتراک‌گذاری:** متن کارت صفحه‌ی اصلی را می‌توانید کپی کنید یا در تلگرام، X و فیس‌بوک به اشتراک بگذارید.
+- **حالت تاریک:** با دکمه‌ی بالای صفحه عوض می‌شود. در اولین بازدید از تنظیمات سیستم‌عامل پیروی می‌کند و بعد از آن، انتخاب شما در `localStorage` می‌ماند.
+- **سئو:** فایل‌های `robots.txt` و `sitemap.xml`، متاتگ‌های Open Graph و توییتر، داده‌ی ساخت‌یافته‌ی JSON-LD و نشانی‌های canonical. نشانی و مشخصات سایت در `lib/site.js` تعریف شده‌اند و دو فایل دیگر را `app/robots.js` و `app/sitemap.js` می‌سازند.
+
+## فناوری‌ها
+
+- **فریم‌ورک:** Next.js 14 با خروجی استاتیک و React 18
+- **تاریخ شمسی:** کتابخانه‌ی `jalaali-js`
+- **فونت:** وزیرمتن، که از خود سایت بارگذاری می‌شود (نه از سرویس‌های بیرونی)
+- **میزبانی:** GitHub Pages، با انتشار خودکار از طریق GitHub Actions
+
+## ساختار پروژه
+
+- فایل `data/content.js`: همه‌ی ایده‌ها (آرایه‌ی `CONTENT`) و دسته‌ها (`CATEGORIES`).
+- فایل `lib/jalali.js`: تبدیل تاریخ میلادی به شمسی، نام ماه‌ها و روزهای هفته، و تبدیل ارقام به فارسی.
+- فایل `lib/site.js`: نشانی، نام و توضیح سایت؛ متادیتا، نقشه‌ی سایت و `robots.txt` از همین‌جا خوانده می‌شوند.
+- فایل `lib/useFavorites.js`: ذخیره و بازیابی علاقه‌مندی‌ها در `localStorage`.
+- صفحه‌ی `app/page.js`: صفحه‌ی اصلی؛ تاریخ امروز و کارت یک ایده‌ی تصادفی.
+- صفحه‌ی `app/archive/page.js`: همه‌ی ایده‌ها با جستجو و فیلتر، به‌علاوه‌ی ۱۲ «باغچه» برای مرور. این باغچه‌ها به تاریخ واقعی ربطی ندارند و فقط برای مرور راحت‌تر ساخته شده‌اند.
+- صفحه‌ی `app/category/[slug]/page.js`: صفحه‌ی هر دسته با فهرست ایده‌هایش.
+- صفحه‌ی `app/about/page.js`: هدف پروژه، به‌همراه یادآوری این‌که این سایت جایگزین کمک تخصصی سلامت روان نیست.
+- پوشه‌ی `components`: اجزای رابط کاربری؛ مثل کارت ایده (`ConceptCard`)، آرشیو قابل‌جستجو (`ArchiveExplorer`)، دکمه‌های علاقه‌مندی و اشتراک‌گذاری، دکمه‌ی حالت تاریک و آیکون‌های جوانه (`SproutIcon`) که برای هر دسته شکل خودش را دارد.
+
+## اجرا روی سیستم خودتان
+
+پیش‌نیاز: Node.js نسخه‌ی ۱۸٫۱۷ یا بالاتر (گردش‌کار انتشار از نسخه‌ی ۲۰ استفاده می‌کند).
 
 ```bash
 npm install
-npm run dev       # http://localhost:3000
+npm run dev
 ```
 
-## Build & preview the static export
+سپس نشانی `http://localhost:3000` را در مرورگر باز کنید.
+
+## ساخت نسخه‌ی استاتیک و پیش‌نمایش
 
 ```bash
-npm run build      # outputs to ./out
-npx serve out       # or: cd out && python3 -m http.server 8080
+npm run build
+npx serve out
 ```
 
-## Deploy to GitHub Pages (startstar.ir)
+خروجی در پوشه‌ی `out` ساخته می‌شود. برای پیش‌نمایش، به‌جای `npx serve out` این هم کار می‌کند:
 
-This repo is set up for the custom domain **startstar.ir** — `public/CNAME`
-already contains it, so the build serves everything from the root (no
-`/repo-name/` subpath).
+```bash
+cd out && python3 -m http.server 8080
+```
 
-1. Push this repo to GitHub.
-2. In the repo settings → **Pages**, set **Source** to **GitHub Actions**.
-   GitHub will detect `public/CNAME` and fill in the custom domain field
-   automatically (or set it manually under Pages → Custom domain).
-3. At your DNS provider (nic.ir / Cloudflare, same as before):
-   - Either an `ALIAS`/`ANAME`/`A` record for the apex (`startstar.ir`)
-     pointing at GitHub Pages' IPs (185.199.108.153, .109.153, .110.153,
-     .111.153), or a `CNAME` record if you're using a `www` subdomain
-     pointing at `<username>.github.io`.
-   - Enable "Enforce HTTPS" in Pages settings once DNS propagates.
-4. Push to `main` — `.github/workflows/deploy.yml` builds and deploys
-   automatically.
+## انتشار روی GitHub Pages
 
-If you ever move off the custom domain and want to serve this from
-`https://<username>.github.io/<repo-name>/` instead, delete `public/CNAME`
-and set `NEXT_BASE_PATH=/<repo-name>` as a build env var in the workflow.
+سایت با گردش‌کار [`deploy.yml`](.github/workflows/deploy.yml) به‌طور خودکار منتشر می‌شود:
 
-## Adding content
+1. با هر push به شاخه‌ی `main` (یا اجرای دستی از تب **Actions**) گردش‌کار اجرا می‌شود.
+2. وابستگی‌ها نصب می‌شوند و متغیر `NEXT_BASE_PATH` بر اساس نام مخزن تنظیم می‌شود تا سایت زیر مسیر `Mind_Garden` درست کار کند.
+3. سایت ساخته می‌شود و پوشه‌ی `out` روی GitHub Pages منتشر می‌شود.
 
-Open `data/content.js` and append a new object to `CONTENT`, e.g.:
+برای راه‌اندازی اولیه فقط یک کار لازم است: در تنظیمات مخزن، بخش **Pages**، گزینه‌ی **Source** را روی **GitHub Actions** بگذارید.
+
+اگر نشانی سایت عوض شد (مثلاً مخزن را fork کردید، تغییر نام دادید یا به دامنه‌ی اختصاصی رفتید)، مقدار `SITE_URL` را در `lib/site.js` به‌روز کنید؛ نشانی‌های canonical، نقشه‌ی سایت، `robots.txt` و لینک‌های اشتراک‌گذاری از همین مقدار ساخته می‌شوند.
+
+### رفتن به دامنه‌ی اختصاصی (مثلاً startstar.ir)
+
+1. در تنظیمات مخزن، بخش **Pages**، دامنه را در قسمت **Custom domain** وارد کنید. وقتی سایت با GitHub Actions منتشر می‌شود، به فایل `CNAME` نیازی نیست و اگر باشد نادیده گرفته می‌شود.
+2. در پنل DNS دامنه، رکوردهایی را که پایین‌تر آمده بسازید.
+3. در گردش‌کار `deploy.yml`، مرحله‌ی `Set basePath` را حذف کنید تا سایت از ریشه‌ی دامنه و بدون مسیر اضافه در دسترس باشد.
+4. مقدار `SITE_URL` را در `lib/site.js` به نشانی تازه تغییر دهید (مثلاً `https://startstar.ir`).
+5. وقتی DNS منتشر شد، در همان بخش **Pages** گزینه‌ی **Enforce HTTPS** را فعال کنید.
+
+برای خود دامنه، چهار رکورد `A` با این IPها لازم است:
+
+```text
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+اگر زیردامنه‌ی `www` را هم می‌خواهید، یک رکورد `CNAME` هم برای آن بسازید که به `aliaslany.github.io` اشاره کند.
+
+## افزودن محتوا
+
+فایل `data/content.js` را باز کنید و یک شیء تازه به انتهای آرایه‌ی `CONTENT` اضافه کنید:
 
 ```js
 {
-  id: 37,
+  id: 95,
   category: "mindfulness",
   title: "...",
   concept: "...",
   exercise: "...",
-}
+},
 ```
 
-`getArchivePlots()` automatically re-groups everything for the archive page
-— nothing else needs to change.
+- مقدار `id` باید یکتا باشد؛ کافی است شماره‌ی آخرین ایده را یکی زیاد کنید.
+- فیلد `title` عنوان کوتاه ایده است، `concept` توضیح آن و `exercise` تمرین عملی‌اش.
+- مقدار `category` باید کلید یکی از دسته‌های `CATEGORIES` باشد:
+  - قدردانی: `gratitude`
+  - ذهنیت رشد: `growth`
+  - تاب‌آوری: `resilience`
+  - مهربانی با خود: `selfCompassion`
+  - توجه آگاهانه: `mindfulness`
+  - ارتباط و مهربانی: `connection`
 
-## Notes
+لازم نیست جای دیگری را تغییر دهید: ایده‌ی تازه خودکار در صفحه‌ی اصلی، باغچه‌ها و صفحه‌ی دسته‌ی خودش نمایش داده می‌شود (تقسیم ایده‌ها بین باغچه‌ها را تابع `getArchivePlots` انجام می‌دهد).
 
-- All content is original phrasing, not quotes attributed to named authors,
-  and avoids clinical/diagnostic claims — the About page includes a note to
-  seek professional support for serious or ongoing mental health concerns.
-- No analytics or third-party scripts are included by design.
+برای ساختن دسته‌ی تازه، آن را با برچسب (`label`)، رنگ (`color`)، نشانی (`slug`) و توضیح (`description`) به `CATEGORIES` اضافه کنید؛ صفحه‌ی آن دسته و نشانی‌اش در نقشه‌ی سایت خودکار ساخته می‌شوند. اگر می‌خواهید آیکون جوانه‌ی مخصوص خودش را داشته باشد، یک شکل هم در `components/SproutIcon.js` برایش اضافه کنید؛ وگرنه شکل دسته‌ی قدردانی نمایش داده می‌شود.
+
+## مشارکت
+
+ایده‌ی تازه‌ای برای باغچه دارید یا مشکلی پیدا کرده‌اید؟ یک [Issue](https://github.com/aliaslany/Mind_Garden/issues) باز کنید یا Pull Request بفرستید. ایده‌ها بهتر است کوتاه، قابل‌اجرا در چند دقیقه و به زبان خودتان نوشته شوند.
+
+## نکته‌ها
+
+- همه‌ی متن‌ها نوشته‌ی خود این پروژه‌اند، نه نقل‌قول‌هایی منسوب به افراد مشخص، و از ادعاهای بالینی و تشخیصی پرهیز می‌کنند.
+- این سایت جایگزین مشاوره یا درمان روان‌شناسی نیست. اگر با مشکلات روانی جدی یا مداوم روبه‌رو هستید، با یک متخصص سلامت روان صحبت کنید؛ این یادآوری در صفحه‌ی «درباره» هم آمده است.
+- عمداً هیچ ابزار آماری (analytics) یا اسکریپت شخص ثالثی در سایت نیست.
