@@ -2,6 +2,9 @@
 // idea from positive psychology, paired with a short practical exercise.
 // Add more entries any time — just keep the same shape. `category` controls
 // which sprout icon is shown (see components/SproutIcon.js).
+//
+// The idea texts in this file are licensed under CC BY-SA 4.0 (see
+// LICENSE-CONTENT); the rest of the project is MIT-licensed (see LICENSE).
 
 export const CATEGORIES = {
   gratitude: { label: "قدردانی", color: "#4C7A3D", slug: "gratitude", description: "توجه آگاهانه به داشته‌ها، بزرگ یا کوچک، و تمرین دیدن خوبی‌های روزمره." },
